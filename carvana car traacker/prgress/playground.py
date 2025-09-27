@@ -29,8 +29,9 @@ def main():
     cars.append(car_df)
 
 print("Add operations? (y/n)")
-while True:
-    choice = input().lower()
+
+choice = input().lower()
+while choice == 'y':
     if choice == 'y':
         main()
         # Print the growing list after each addition
@@ -38,18 +39,19 @@ while True:
             all_cars_df = pd.concat(cars, ignore_index=True)
             print("All cars entered so far:")
             print(all_cars_df)
-        else:
-            print("No cars were entered yet.")
-    elif choice == 'n':
-        print("Exiting program.")
-        break
+            print("add additinal operations? (y/n)")
     else:
-        print("Invalid input. Please enter 'y' or 'n'.")
+        print("No cars were entered yet.")
+if choice == 'n':
+        print("Exiting program.")
+        
+else:
+    print("Invalid input. Please enter 'y' or 'n'.")
 
 # Final summary after exiting loop
-if cars:
+"""if cars:
     all_cars_df = pd.concat(cars, ignore_index=True)
     print("All cars entered:")
     print(all_cars_df)
 else:
-    print("No cars were entered.")
+    print("No cars were entered.")"""
